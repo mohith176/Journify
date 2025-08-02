@@ -1,0 +1,369 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #1c160c;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f7;
+}
+
+.auth-box {
+  width: 480px; /* Increased from 400px */
+  padding: 50px; /* Increased from 40px */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.auth-box:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.auth-header h1 {
+  font-size: 34px; /* Slightly increased from 32px */
+  font-weight: bold;
+  color: #1c160c;
+  margin-bottom: 16px;
+}
+
+.auth-header p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.auth-input-group {
+  text-align: left;
+  margin-bottom: 28px; /* Slightly increased from 24px */
+}
+
+.auth-input-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1c160c;
+  margin-bottom: 8px;
+}
+
+.auth-input-group input {
+  width: 100%;
+  padding: 16px; /* Increased from 14px */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.auth-input-group input:focus {
+  outline: none;
+  border-color: #019863;
+  box-shadow: 0 0 0 2px rgba(1, 152, 99, 0.1);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 18px; /* Increased from 16px */
+  background-color: #019863;
+  color: #ffffff;
+  font-size: 18px; /* Increased from 16px */
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(1, 152, 99, 0.1);
+}
+
+.auth-button:hover {
+  background-color: #017d4f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(1, 152, 99, 0.15);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(1, 152, 99, 0.1);
+}
+
+.auth-button:disabled {
+  background-color: #93c5ae;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.signup-text {
+  margin-top: 36px; /* Increased from 30px */
+  color: #666;
+  font-size: 16px; /* Increased from 15px */
+}
+
+.signup-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #019863;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #017d4f;
+  text-decoration: underline;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px; /* Increased from 24px */
+  text-align: left;
+}
+
+.terms input[type="checkbox"] {
+  width: 20px; /* Increased from 18px */
+  height: 20px; /* Increased from 18px */
+  accent-color: #019863;
+  cursor: pointer;
+}
+
+.terms label {
+  cursor: pointer;
+  font-size: 15px; /* Increased from 14px */
+  color: #666;
+}
+
+.terms-link {
+  color: #019863;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.terms-link:hover {
+  color: #017d4f;
+  text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 16px; /* Increased from 14px */
+  border-radius: 8px;
+  margin-bottom: 28px; /* Increased from 24px */
+  font-size: 15px; /* Increased from 14px */
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+  border-left: 4px solid #d32f2f;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .auth-box {
+    width: 90%;
+    padding: 35px 25px;
+  }
+  
+  .auth-header h1 {
+    font-size: 30px;
+  }
+}
+.oauth-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.oauth-container p {
+  margin-bottom: 15px;
+  color: #666;
+  position: relative;
+}
+
+.oauth-container p::before,
+.oauth-container p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.oauth-container p::before {
+  left: 0;
+}
+
+.oauth-container p::after {
+  right: 0;
+}
+
+/* OTP form styles */
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resend-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.resend-button,
+.change-email-button {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.resend-button:hover,
+.change-email-button:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+.resend-button:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Add to your LoginPage.css file */
+
+.oauth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.facebook-login-button {
+  background-color: #1877f2 !important;
+  color: white !important;
+  font-size: 16px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  position: relative;
+}
+
+.facebook-login-button:hover {
+  background-color: #166fe5 !important;
+}
+
+.facebook-login-button:before {
+  content: '';
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white"><path d="M16,8.048 C16,3.601 12.418,0 8,0 C3.582,0 0,3.602 0,8.048 C0,12.069 2.925,15.398 6.75,16 L6.75,10.375 L4.719,10.375 L4.719,8.048 L6.75,8.048 L6.75,6.276 C6.75,4.258 7.944,3.144 9.772,3.144 C10.648,3.144 11.563,3.301 11.563,3.301 L11.563,5.275 L10.554,5.275 C9.555,5.275 9.25,5.891 9.25,6.522 L9.25,8.048 L11.469,8.048 L11.114,10.375 L9.25,10.375 L9.25,16 C13.075,15.398 16,12.069 16,8.048 Z"/></svg>');
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Dark mode styles for the login page */
+[data-theme="dark"] .auth-container {
+  background-color: var(--bg-color); /* Dark background for the container */
+  color: var(--text-main); /* White text */
+}
+
+[data-theme="dark"] .auth-box {
+  background-color: var(--card-bg); /* Dark background for the login box */
+  color: var(--text-main); /* White text */
+  border: 1px solid var(--border-color); /* Subtle border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adjusted shadow for dark mode */
+}
+
+[data-theme="dark"] .auth-header h1 {
+  color: var(--text-main); /* White text for the header */
+}
+
+[data-theme="dark"] .auth-header p {
+  color: var(--text-secondary); /* Light gray text for the subtitle */
+}
+
+[data-theme="dark"] .auth-input-group label {
+  color: var(--text-main); /* White text for input labels */
+}
+
+[data-theme="dark"] .auth-input-group input {
+  background-color: var(--card-bg); /* Dark background for inputs */
+  color: var(--text-main); /* White text for inputs */
+  border: 1px solid var(--border-color); /* Subtle border */
+}
+
+[data-theme="dark"] .auth-input-group input:focus {
+  border-color: var(--primary-color); /* Blue border on focus */
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* Blue focus shadow */
+}
+
+[data-theme="dark"] .auth-button {
+  background-color: var(--success-color); /* Green background for the button */
+  color: var(--text-main); /* White text */
+  box-shadow: 0 4px 6px rgba(72, 187, 120, 0.2); /* Adjusted shadow for dark mode */
+}
+
+[data-theme="dark"] .auth-button:hover {
+  background-color: #2f855a; /* Darker green on hover */
+}
+
+[data-theme="dark"] .signup-text {
+  color: var(--text-secondary); /* Light gray text for the signup text */
+}
+
+[data-theme="dark"] .signup-link {
+  color: var(--primary-color); /* Blue text for the signup link */
+}
+
+[data-theme="dark"] .signup-link:hover {
+  color: var(--primary-hover); /* Darker blue on hover */
+}
+
+[data-theme="dark"] .oauth-container p {
+  color: var(--text-secondary); /* Light gray text for "Or login with" */
+}
+
+[data-theme="dark"] .facebook-login-button {
+  background-color: #1877f2; /* Blue background for Facebook button */
+  color: var(--text-main); /* White text */
+}
+
+[data-theme="dark"] .facebook-login-button:hover {
+  background-color: #166fe5; /* Darker blue on hover */
+}
+
+[data-theme="dark"] .error-message {
+  background-color: rgba(229, 62, 62, 0.1); /* Light red background for error */
+  color: var(--danger-color); /* Red text for error */
+  border-left: 4px solid var(--danger-color); /* Red border for error */
+}

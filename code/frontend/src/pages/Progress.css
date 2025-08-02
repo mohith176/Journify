@@ -1,0 +1,2656 @@
+/* Progress.css for Journify App - GitHub/LeetCode Style */
+
+/* Main layout containers */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f6f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.content-container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.progress-container {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  border: 1px solid #e1e4e8;
+}
+
+.progress-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 1rem;
+}
+
+.progress-header h1 {
+  font-size: 1.5rem;
+  color: #24292e;
+  font-weight: 600;
+}
+
+/* Dark mode styles for the Progress page with blue background */
+[data-theme="dark"] .progress-container {
+  background-color: #161b22; /* Dark background for the progress container */
+  color: #c9d1d9; /* Light gray text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+[data-theme="dark"] body {
+  background-color: #0d1117; /* Blue background for the entire page */
+}
+
+[data-theme="dark"] .progress-header h1,
+[data-theme="dark"] .progress-header h2 {
+  color: #ffffff; /* White text for headers */
+}
+
+[data-theme="dark"] .progress-card {
+  background-color: #161b22; /* Slightly lighter dark blue background for cards */
+  color: #c9d1d9; /* Light gray text for cards */
+  border: 1px solid #30363d; /* Subtle border for cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .progress-card:hover {
+  background-color: #21262d; /* Slightly lighter background on hover */
+}
+
+[data-theme="dark"] .progress-stats {
+  background-color: #161b22; /* Dark blue background for stats */
+  color: #c9d1d9; /* Light gray text for stats */
+  border: 1px solid #30363d; /* Subtle border for stats */
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .progress-chart {
+  background-color: #0d1117; /* Dark blue background for charts */
+  color: #c9d1d9; /* Light gray text for charts */
+}
+
+[data-theme="dark"] .progress-filters {
+  background-color: #161b22; /* Dark blue background for filters */
+  color: #c9d1d9; /* Light gray text for filters */
+  border: 1px solid #30363d; /* Subtle border for filters */
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .progress-filters button {
+  background-color: #21262d; /* Dark button background */
+  color: #c9d1d9; /* Light gray text for buttons */
+  border: 1px solid #30363d; /* Subtle border for buttons */
+  border-radius: 6px;
+}
+
+[data-theme="dark"] .progress-filters button:hover {
+  background-color: #404854; /* Slightly lighter background on hover */
+}
+
+[data-theme="dark"] .progress-contribution-grid {
+  background-color: #0d1117; /* Dark blue background for contribution grid */
+  color: #c9d1d9; /* Light gray text for contribution grid */
+}
+
+[data-theme="dark"] .progress-contribution-grid .day {
+  background-color: #161b22; /* Dark blue background for grid cells */
+  border: 1px solid #30363d; /* Subtle border for grid cells */
+}
+
+[data-theme="dark"] .progress-contribution-grid .day.active {
+  background-color: #238636; /* Highlighted green for active days */
+  color: #ffffff; /* White text for active days */
+}
+
+[data-theme="dark"] .progress-header {
+  border-bottom: 1px solid #30363d; /* Subtle border for header */
+}
+
+[data-theme="dark"] .progress-legend {
+  color: #8b949e; /* Muted gray for legend text */
+}
+
+/* Dark mode styles for Contribution Activity box */
+[data-theme="dark"] .contribution-activity {
+  background-color: #0d1117; /* Darker background */
+  color: #c9d1d9; /* Light gray text */
+  border: 1px solid #30363d; /* Subtle border */
+  border-radius: 8px;
+  padding: 1rem; /* Add padding for better spacing */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles for the contribution grid */
+[data-theme="dark"] .contribution-grid .day {
+  background-color: #21262d; /* Dark background for grid cells */
+  border: 1px solid #30363d; /* Subtle border for grid cells */
+}
+
+[data-theme="dark"] .contribution-grid .day.active {
+  background-color: #238636; /* Highlighted green for active days */
+  color: #ffffff; /* White text for active days */
+}
+
+/* Dark mode styles for month and weekday labels */
+[data-theme="dark"] .month-labels,
+[data-theme="dark"] .weekday-labels {
+  color: #8b949e; /* Muted text color */
+}
+
+/* Dark mode styles for the legend */
+[data-theme="dark"] .calendar-legend {
+  color: #8b949e; /* Muted gray text for the legend */
+}
+
+[data-theme="dark"] .legend-cell {
+  border: 1px solid #30363d; /* Subtle border for legend cells */
+}
+
+/* Dark mode styles for the contribution grid */
+[data-theme="dark"] .calendar-cell {
+  background-color: #ffffff; /* White background for base cells */
+  border: 1px solid #30363d; /* Subtle border */
+}
+
+[data-theme="dark"] .calendar-cell.level-0 {
+  background-color: #ffffff; /* White background for no activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-1 {
+  background-color: #9be9a8; /* Light green for low activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-2 {
+  background-color: #40c463; /* Medium green for medium activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-3 {
+  background-color: #30a14e; /* Dark green for high activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-4 {
+  background-color: #216e39; /* Darkest green for very high activity */
+}
+
+/* Update container backgrounds */
+[data-theme="dark"] .github-style-calendar {
+  background-color: #0d1117; /* Dark background */
+  border-color: #30363d;
+}
+
+[data-theme="dark"] .calendar-container {
+  background-color: #0d1117;
+}
+
+/* Update calendar text colors */
+[data-theme="dark"] .month-labels,
+[data-theme="dark"] .weekday-labels {
+  color: #8b949e; /* Muted text color */
+}
+
+/* Update legend colors */
+[data-theme="dark"] .calendar-legend {
+  color: #8b949e;
+}
+
+[data-theme="dark"] .legend-cell {
+  border: 1px solid #30363d;
+}
+
+/* Global dark mode styles */
+[data-theme="dark"] body {
+  background-color: #0d1117; /* Dark background for the entire page */
+  color: #c9d1d9; /* Light gray text for better readability */
+}
+
+[data-theme="dark"] .app-container {
+  background-color: #0d1117; /* Dark background for the app container */
+  color: #c9d1d9; /* Light gray text */
+}
+
+[data-theme="dark"] .content-container {
+  background-color: #0d1117; /* Dark background for content container */
+  color: #c9d1d9; /* Light gray text */
+}
+
+[data-theme="dark"] .progress-container {
+  background-color: #161b22; /* Dark background for the progress container */
+  color: #c9d1d9; /* Light gray text */
+}
+
+[data-theme="dark"] .progress-header h1 {
+  color: #ffffff; /* White text for headers */
+}
+
+[data-theme="dark"] .tabs-container .tab {
+  background-color: #21262d; /* Dark background for tabs */
+  color: #c9d1d9; /* Light gray text */
+}
+
+[data-theme="dark"] .tabs-container .tab.active {
+  background-color: #30363d; /* Highlighted dark background for active tab */
+  color: #ffffff; /* White text for active tab */
+}
+
+[data-theme="dark"] .stats-card {
+  background-color: #161b22; /* Dark background for stats cards */
+  color: #c9d1d9; /* Light gray text for stats */
+  border: 1px solid #30363d; /* Subtle border for stats cards */
+  border-radius: 6px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+[data-theme="dark"] .stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+}
+
+[data-theme="dark"] .stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #c9d1d9; /* Light gray text for numbers */
+}
+
+[data-theme="dark"] .stat-label {
+  font-size: 0.8rem;
+  color: #8b949e; /* Muted gray text for labels */
+}
+
+[data-theme="dark"] .daily-goal-card,
+[data-theme="dark"] .deadline-item,
+[data-theme="dark"] .goal-card {
+  background-color: #21262d; /* Dark background for cards */
+  color: #c9d1d9; /* Light gray text */
+  border: 1px solid #30363d; /* Subtle border for cards */
+}
+
+[data-theme="dark"] .goal-card.add-goal {
+  background-color: #21262d; /* Dark background for add-goal card */
+  color: #c9d1d9; /* Light gray text */
+  border: 2px dashed #30363d; /* Dashed border for add-goal card */
+}
+
+[data-theme="dark"] .goal-card.add-goal:hover {
+  background-color: #30363d; /* Slightly lighter background on hover */
+  border-color: #ffffff; /* White border on hover */
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: #21262d; /* Dark background for modals */
+  color: #c9d1d9; /* Light gray text */
+}
+
+[data-theme="dark"] .btn {
+  background-color: #30363d; /* Dark background for buttons */
+  color: #c9d1d9; /* Light gray text */
+  border: 1px solid #30363d; /* Subtle border for buttons */
+}
+
+[data-theme="dark"] .btn:hover {
+  background-color: #404854; /* Slightly lighter background on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+[data-theme="dark"] .badge-item {
+  background: none !important; /* Remove background */
+  border: none !important; /* Remove border */
+  box-shadow: none !important; /* Remove shadow */
+}
+
+[data-theme="dark"] .badge-icon {
+  background: none !important; /* Remove background */
+  border: none !important; /* Remove border */
+  box-shadow: none !important; /* Remove shadow */
+}
+
+[data-theme="dark"] .badge-name {
+  color: var(--text-secondary); /* Use light gray text for badge names */
+}
+
+[data-theme="dark"] .badge-item.locked .badge-name {
+  background-color: #161b22; /* Dark background for the calendar */
+  border: 1px solid #30363d; /* Subtle border */
+  color: #ffffff; /* White text */
+}
+
+[data-theme="dark"] .month-labels,
+[data-theme="dark"] .weekday-labels {
+  color: #8b949e; /* Muted text color */
+}
+
+[data-theme="dark"] .calendar-cell {
+  background-color: #161b22; /* Dark background for calendar cells */
+  border: 1px solid #30363d; /* Subtle border */
+}
+
+[data-theme="dark"] .calendar-cell.level-0 {
+  background-color: #161b22; /* Background for no activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-1 {
+  background-color: #0e4429; /* Low activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-2 {
+  background-color: #006d32; /* Medium activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-3 {
+  background-color: #26a641; /* High activity */
+}
+
+[data-theme="dark"] .calendar-cell.level-4 {
+  background-color: #39d353; /* Very high activity */
+}
+
+[data-theme="dark"] .calendar-legend {
+  color: #8b949e; /* Muted gray text for the legend */
+}
+
+[data-theme="dark"] .streak-card {
+  background-color: #21262d; /* Dark background for streak cards */
+  color: #ffffff; /* White text */
+  border: 1px solid #30363d; /* Subtle border */
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .streak-header {
+  font-size: 0.9rem;
+  color: #c9d1d9; /* Light gray text for headers */
+}
+
+[data-theme="dark"] .streak-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff; /* White text for numbers */
+}
+
+[data-theme="dark"] .streak-subtitle {
+  font-size: 0.8rem;
+  color: #c9d1d9; /* Light gray text for subtitles */
+}
+
+/* Dark mode styles for the "Goals" heading */
+[data-theme="dark"] .goals-header h3 {
+  color: #ffffff; /* White text for the "Goals" heading */
+}
+
+/* Dark mode styles for the goals filter box */
+[data-theme="dark"] .goals-filters {
+  background-color: #21262d; /* Dark background for the filter box */
+  color: #ffffff; /* White text for the filter labels */
+  border: 1px solid #30363d; /* Subtle border for the filter box */
+  border-radius: 6px;
+}
+
+/* Dark mode styles for filter buttons */
+[data-theme="dark"] .goals-filters .btn-group button {
+  background-color: #30363d; /* Dark background for buttons */
+  color: #c9d1d9; /* Light gray text for buttons */
+  border: 1px solid #404854; /* Subtle border for buttons */
+}
+
+[data-theme="dark"] .goals-filters .btn-group button:hover {
+  background-color: #404854; /* Slightly lighter background on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+[data-theme="dark"] .goals-filters .btn-group button.active {
+  background-color: #0366d6; /* Blue background for active button */
+  color: #ffffff; /* White text for active button */
+  border-color: #0366d6; /* Blue border for active button */
+}
+
+/* Dark mode styles for filter labels */
+[data-theme="dark"] .goals-filters .filter-group label {
+  color: #ffffff; /* White text for filter labels */
+}
+
+/* Dark mode styles for the badges section */
+[data-theme="dark"] .badges-section {
+  color: #ffffff; /* White text for the badges section */
+}
+
+/* Dark mode styles for badge categories (e.g., Streaks) */
+[data-theme="dark"] .badge-category {
+  color: #ffffff; /* White text for badge categories */
+  border-bottom: 1px solid #30363d; /* Subtle border for separation */
+}
+
+/* Dark mode styles for category progress */
+[data-theme="dark"] .category-progress {
+  color: #c9d1d9; /* Light gray text for progress details */
+}
+
+/* Dark mode styles for "Your Achievements" heading */
+[data-theme="dark"] .badges-tab h3 {
+  color: #ffffff; /* White text for "Your Achievements" heading */
+}
+
+/* Dark mode styles for "Contribution Activity" heading */
+[data-theme="dark"] .overview-tab .section-header h3 {
+  color: #c9d1d9; /* Light gray text for "Contribution Activity" heading */
+}
+
+/* Dark mode styles for input fields, text areas, and dropdowns */
+[data-theme="dark"] .goal-modal input,
+[data-theme="dark"] .goal-modal textarea,
+[data-theme="dark"] .goal-modal select {
+  background-color: #21262d; /* Dark background for input fields */
+  color: #ffffff; /* White text for input fields */
+  border: 1px solid #30363d; /* Subtle border for input fields */
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .goal-modal input::placeholder,
+[data-theme="dark"] .goal-modal textarea::placeholder {
+  color: #8b949e; /* Muted gray for placeholder text */
+}
+
+[data-theme="dark"] .goal-modal select {
+  appearance: none; /* Remove default dropdown styling */
+}
+
+[data-theme="dark"] .goal-modal input:focus,
+[data-theme="dark"] .goal-modal textarea:focus,
+[data-theme="dark"] .goal-modal select:focus {
+  outline: none;
+  border-color: #0366d6; /* Blue border on focus */
+  box-shadow: 0 0 4px rgba(3, 102, 214, 0.5); /* Subtle blue glow on focus */
+}
+
+/* Dark mode styles for the modal header */
+[data-theme="dark"] .goal-modal .modal-header {
+  background-color: #21262d; /* Dark background for the modal header */
+  color: #ffffff; /* White text for the modal title */
+  border-bottom: 1px solid #30363d; /* Subtle border for separation */
+}
+
+/* Dark mode styles for goal type options */
+[data-theme="dark"] .goal-type-option {
+  background-color: #21262d; /* Dark background for goal type boxes */
+  color: #c9d1d9; /* Light gray text for goal type descriptions */
+  border: 1px solid #30363d; /* Subtle border for goal type boxes */
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .goal-type-option:hover {
+  background-color: #30363d; /* Slightly lighter background on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+[data-theme="dark"] .goal-type-option.active {
+  background-color: #0366d6; /* Blue background for active goal type */
+  color: #ffffff; /* White text for active goal type */
+  border-color: #0366d6; /* Blue border for active goal type */
+}
+
+/* Dark mode styles for goal type icons */
+[data-theme="dark"] .goal-type-option .type-icon {
+  color: #ffffff; /* White color for icons */
+}
+
+/* Dark mode styles for goal type labels */
+[data-theme="dark"] .goal-type-option .type-label {
+  color: #ffffff; /* White text for goal type labels */
+}
+
+/* Dark mode styles for goal type descriptions */
+[data-theme="dark"] .goal-type-option .type-description {
+  color: #c9d1d9; /* Light gray text for goal type descriptions */
+}
+
+/* Dark mode styles for goal card text */
+[data-theme="dark"] .goal-card {
+  background-color: #21262d; /* Dark background for goal cards */
+  color: #ffffff; /* White text for goal card content */
+  border: 1px solid #30363d; /* Subtle border for goal cards */
+}
+
+/* Dark mode styles for goal card details */
+[data-theme="dark"] .goal-card .goal-title {
+  color: #ffffff; /* White text for goal title */
+}
+
+[data-theme="dark"] .goal-card .goal-details {
+  color: #c9d1d9; /* Light gray text for goal details */
+}
+
+/* Dark mode styles for priority badge */
+[data-theme="dark"] .goal-card .goal-status-badge {
+  background-color: #d73a49; /* Dark red background for high priority */
+  color: #ffffff; /* White text for priority badge */
+  border: 1px solid #a83232; /* Subtle border for priority badge */
+}
+
+/* Dark mode styles for action buttons */
+[data-theme="dark"] .goal-card .goal-actions .goal-action-btn {
+  background-color: #30363d; /* Dark background for action buttons */
+  color: #c9d1d9; /* Light gray text for action buttons */
+  border: 1px solid #404854; /* Subtle border for action buttons */
+}
+
+[data-theme="dark"] .goal-card .goal-actions .goal-action-btn:hover {
+  background-color: #404854; /* Slightly lighter background on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+/* Navigation */
+/* Navbar */
+[data-theme="dark"] .navbar.bg-white {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .navbar-brand, 
+[data-theme="dark"] .nav-link {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: var(--button-bg) !important;
+  font-weight: bold;
+}
+
+/* .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+} */
+
+/* Stats Overview - GitHub Style */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats-card {
+  display: flex;
+  align-items: center;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0366d6;
+  color: white;
+  margin-right: 1rem;
+}
+
+.streak-icon {
+  background-color: #28a745;
+}
+
+.longest-streak-icon {
+  background-color: #6f42c1;
+}
+
+.months-icon {
+  background-color: #e36209;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #24292e;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #586069;
+}
+
+/* Tabs */
+.tabs-container {
+  margin-top: 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #e1e4e8;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #586069;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.tab:hover {
+  color: #0366d6;
+}
+
+.tab.active {
+  color: #24292e;
+  font-weight: 600;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f9826c;
+  border-radius: 1px;
+}
+
+.tab-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tab-content {
+  padding: 1rem 0;
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #24292e;
+  margin: 0;
+}
+
+.section-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.year-selector {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  background-color: #f6f8fa;
+  font-size: 0.8rem;
+  color: #24292e;
+}
+
+/* GitHub Style Calendar/Heatmap */
+.github-style-calendar {
+  margin-bottom: 2rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 1.5rem;
+  background-color: white;
+}
+
+.calendar-container {
+  position: relative;
+  padding-left: 30px;
+  overflow: hidden;
+}
+
+.month-labels {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  font-size: 0.75rem;
+  color: #586069;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.month-label {
+  text-align: left;
+  padding-left: 4px;
+}
+
+.calendar-with-labels {
+  display: flex;
+  position: relative;
+}
+
+.weekday-labels {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 104px;
+  font-size: 0.75rem;
+  color: #586069;
+  width: 25px;
+}
+
+.weekday-label:nth-child(1) {
+  position: absolute;
+  top: 14px; /* Monday position (2nd row) */
+}
+
+.weekday-label:nth-child(2) {
+  position: absolute;
+  top: 43px; /* Wednesday position (4th row) */
+}
+
+.weekday-label:nth-child(3) {
+  position: absolute;
+  top: 72px; /* Friday position (6th row) */
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr); /* 53 weeks (full year plus buffer) */
+  grid-template-rows: repeat(7, 1fr); /* 7 days in a week */
+  gap: 3px;
+  width: 100%;
+  height: 104px;
+}
+
+.calendar-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  background-color: #ebedf0;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+  position: relative;
+}
+
+.calendar-cell.outside-month {
+  opacity: 0.5;
+}
+
+.calendar-cell:hover {
+  transform: scale(1.25);
+  z-index: 10;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-cell:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #24292e;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 15;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.calendar-cell.level-0 {
+  background-color: #ebedf0;
+}
+
+.calendar-cell.level-1 {
+  background-color: #9be9a8;
+}
+
+.calendar-cell.level-2 {
+  background-color: #40c463;
+}
+
+.calendar-cell.level-3 {
+  background-color: #30a14e;
+}
+
+.calendar-cell.level-4 {
+  background-color: #216e39;
+}
+
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #586069;
+}
+
+.legend-label {
+  margin: 0 4px;
+}
+
+.legend-cells {
+  display: flex;
+  gap: 2px;
+  margin: 0 4px;
+}
+
+.legend-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.legend-cell.level-0 {
+  background-color: #ebedf0;
+}
+
+.legend-cell.level-1 {
+  background-color: #9be9a8;
+}
+
+.legend-cell.level-2 {
+  background-color: #40c463;
+}
+
+.legend-cell.level-3 {
+  background-color: #30a14e;
+}
+
+.legend-cell.level-4 {
+  background-color: #216e39;
+}
+
+/* Streak Summary */
+.streak-summary {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.streak-card {
+  flex: 1;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.streak-header {
+  font-size: 0.9rem;
+  color: #586069;
+  margin-bottom: 0.5rem;
+}
+
+.streak-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 0.25rem;
+}
+
+.streak-subtitle {
+  font-size: 0.8rem;
+  color: #586069;
+}
+
+/* Reddit-Style Badge System */
+.badges-tab h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #24292e;
+  font-weight: 600;
+}
+
+.badges-section {
+  margin-bottom: 2rem;
+}
+
+.badge-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #24292e;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.category-progress {
+  font-size: 0.85rem;
+  color: #586069;
+  font-weight: normal;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.badge-item:hover {
+  transform: translateY(-5px);
+}
+
+.badge-icon-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.75rem;
+}
+
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #f6f8fa;
+  font-size: 2rem;
+  color: #586069;
+  border: 1px solid #e1e4e8;
+  overflow: hidden;
+  position: relative;
+}
+
+.badge-item.locked .badge-icon {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.progress-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.progress-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(46, 164, 79, 0.2);
+  transition: height 0.3s ease;
+}
+
+.badge-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary); /* Keep the text color consistent */
+  text-align: center;
+  background: none !important; /* Ensure no background is applied */
+  border: none !important; /* Remove any border */
+  box-shadow: none !important; /* Remove any shadow */
+  padding: 0; /* Remove any padding */
+}
+
+.badge-item.locked .badge-name {
+  color: #6a737d;
+}
+
+.badge-earned-date {
+  font-size: 0.7rem;
+  color: #6a737d;
+  margin-top: 0.25rem;
+}
+/* Badge rarities */
+.rarity-common {
+  border-color: #d1d5da;
+  background-color: #f6f8fa;
+}
+
+.rarity-uncommon {
+  border-color: #34d058;
+  background-color: rgba(46, 164, 79, 0.1);
+}
+
+.rarity-rare {
+  border-color: #2188ff;
+  background-color: rgba(33, 136, 255, 0.1);
+}
+
+.rarity-epic {
+  border-color: #8a63d2;
+  background-color: rgba(138, 99, 210, 0.1);
+}
+
+.rarity-legendary {
+  border-color: #ffab70;
+  background-color: rgba(255, 171, 112, 0.1);
+  box-shadow: 0 0 10px rgba(255, 171, 112, 0.5);
+}
+
+/* Badge modal */
+.badge-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.badge-modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #586069;
+}
+
+.badge-icon-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.badge-modal-description {
+  text-align: center;
+  color: #586069;
+  margin-bottom: 1.5rem;
+}
+
+.badge-earned {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.badge-progress {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #ebedf0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-done {
+  width: 100%;
+  height: 8px;
+  background-color: green;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #2ea44f;
+  border-radius: 4px;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: #586069;
+  text-align: center;
+  margin: 0;
+}
+
+.badge-rarity {
+  margin-top: 1rem;
+}
+
+.rarity-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.rarity-tag.rarity-common {
+  background-color: #f6f8fa;
+  color: #586069;
+}
+
+.rarity-tag.rarity-uncommon {
+  background-color: rgba(46, 164, 79, 0.1);
+  color: #28a745;
+}
+
+.rarity-tag.rarity-rare {
+  background-color: rgba(33, 136, 255, 0.1);
+  color: #2188ff;
+}
+
+.rarity-tag.rarity-epic {
+  background-color: rgba(138, 99, 210, 0.1);
+  color: #8a63d2;
+}
+
+.rarity-tag.rarity-legendary {
+  background-color: rgba(255, 171, 112, 0.1);
+  color: #f66a0a;
+}
+
+/* Badge notification */
+.badge-notification-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.badge-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: auto;
+}
+
+.badge-notification.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badge-notification.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.notification-content {
+  display: flex;
+  padding: 15px;
+  position: relative;
+}
+
+.notification-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-text h4 {
+  margin: 0;
+  color: #24292e;
+  font-size: 0.9rem;
+}
+
+.notification-badge-name {
+  margin: 5px 0 2px;
+  font-weight: 600;
+  color: #24292e;
+  font-size: 1rem;
+}
+
+.notification-badge-description {
+  margin: 0;
+  color: #586069;
+  font-size: 0.8rem;
+}
+
+.close-notification {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  color: #586069;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Goals Tab */
+.goals-tab h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #24292e;
+  font-weight: 600;
+}
+
+.goals-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* Goals header and add button */
+.goals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-goal-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* Daily goals section */
+.daily-goals-section {
+  margin-bottom: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid #e1e4e8;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #24292e;
+  margin-bottom: 0.75rem;
+}
+
+.section-icon {
+  color: #0366d6;
+}
+
+.daily-goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.daily-goal-card {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.daily-goal-emoji {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daily-goal-content {
+  flex: 1;
+}
+
+.daily-goal-title {
+  font-size: 0.9rem;
+  margin: 0 0 0.25rem;
+}
+
+.daily-goal-streak {
+  font-size: 0.8rem;
+  color: #586069;
+}
+
+.daily-goal-streak span {
+  font-weight: 500;
+  color: #2ea44f;
+}
+
+.daily-goal-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.daily-goal-btn {
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.daily-goal-btn.complete {
+  background-color: #defbe6;
+  color: #2ea44f;
+}
+
+.daily-goal-btn.complete:hover {
+  background-color: #2ea44f;
+  color: white;
+}
+
+.daily-goal-btn.skip {
+  background-color: #f6f8fa;
+  color: #586069;
+}
+
+.daily-goal-btn.skip:hover {
+  background-color: #d1d5da;
+}
+
+/* Deadlines section */
+.deadlines-section {
+  margin-bottom: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid #e1e4e8;
+}
+
+.deadlines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.deadline-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 0.65rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.deadline-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.deadline-emoji {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deadline-content {
+  flex: 1;
+}
+
+.deadline-title {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.deadline-date {
+  font-size: 0.75rem;
+  color: #586069;
+}
+
+.deadline-priority {
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.priority-high {
+  background-color: #fff0f0;
+  color: #d73a49;
+  border: 1px solid #ffc1c1;
+}
+
+.priority-medium {
+  background-color: #fffbdd;
+  color: #b08800;
+  border: 1px solid #ffe3a2;
+}
+
+.priority-low {
+  background-color: #f0f7ff;
+  color: #0366d6;
+  border: 1px solid #c8e1ff;
+}
+
+/* Goals filters */
+.goals-filters {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.8rem;
+  color: #24292e;
+  font-weight: 500;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.btn-group button {
+  border: 1px solid #e1e4e8;
+  background-color: #fff;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  color: #586069;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-group button:hover {
+  background-color: #f6f8fa;
+}
+
+.btn-group button.active {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+}
+
+.priority-btn {
+  font-weight: 500;
+}
+
+.priority-btn.priority-high {
+  color: #d73a49;
+}
+
+.priority-btn.priority-medium {
+  color: #b08800;
+}
+
+.priority-btn.priority-low {
+  color: #0366d6;
+}
+
+.priority-btn.priority-high.active,
+.priority-btn.priority-medium.active,
+.priority-btn.priority-low.active {
+  color: white;
+}
+
+.priority-btn.priority-high.active {
+  background-color: #d73a49;
+  border-color: #d73a49;
+}
+
+.priority-btn.priority-medium.active {
+  background-color: #b08800;
+  border-color: #b08800;
+}
+
+.priority-btn.priority-low.active {
+  background-color: #0366d6;
+  border-color: #0366d6;
+}
+
+/* Goals grid */
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.goal-card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 1.25rem;
+  border: 1px solid #e1e4e8;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.goal-card.daily-type {
+  border-left: 4px solid #2188ff;
+}
+
+.goal-card.normal-type {
+  border-left: 4px solid #2ea44f;
+}
+
+.goal-card.overdue {
+  border-left: 4px solid #d73a49;
+}
+
+.goal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.goal-emoji {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-status-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+.goal-status-badge.not-started {
+  background-color: #f6f8fa;
+  color: #586069;
+  border: 1px solid #e1e4e8;
+}
+
+.goal-status-badge.in-progress {
+  background-color: #fff8c5;
+  color: #735c0f;
+  border: 1px solid #f9e3a2;
+}
+
+.goal-status-badge.completed {
+  background-color: #e6ffec;
+  color: #22863a;
+  border: 1px solid #b6e9c9;
+}
+
+.goal-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 0.5rem;
+}
+
+.goal-description {
+  font-size: 0.9rem;
+  color: #586069;
+  margin-bottom: 1rem;
+}
+
+.goal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.goal-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #586069;
+}
+
+.detail-icon {
+  color: #6a737d;
+}
+
+.overdue-text {
+  color: #d73a49;
+  font-weight: 500;
+}
+
+.goal-progress-tracker {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.goal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eaecef;
+}
+
+.goal-action-btn {
+  border: none;
+  background: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.goal-action-btn.view-btn {
+  /* background-color: #f1f8ff;
+  color: #0366d6; */
+  color: #4a6fa5;
+  background-color: rgba(74, 111, 165, 0.1);
+}
+
+.goal-action-btn.view-btn:hover {
+  /* background-color: #0366d6;
+  color: white; */
+  background-color: rgba(74, 111, 165, 0.2);
+}
+
+.goal-action-btn.edit-btn {
+  background-color: #fafbfc;
+  color: #6a737d;
+}
+
+.goal-action-btn.edit-btn:hover {
+  background-color: #6a737d;
+  color: white;
+}
+
+.goal-action-btn.complete-btn {
+  background-color: #e6ffec;
+  color: #2ea44f;
+}
+
+.goal-action-btn.complete-btn:hover {
+  background-color: #2ea44f;
+  color: white;
+}
+
+.goal-action-btn.delete-btn {
+  background-color: #ffeef0;
+  color: #d73a49;
+}
+
+.goal-action-btn.delete-btn:hover {
+  background-color: #d73a49;
+  color: white;
+}
+
+/* Add goal card */
+.goal-card.add-goal {
+  border: 2px dashed #e1e4e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f6f8fa;
+  min-height: 180px;
+}
+
+.goal-card.add-goal:hover {
+  border-color: #0366d6;
+  background-color: #f8fafc;
+}
+
+.add-goal-content {
+  text-align: center;
+}
+
+.add-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f1f8ff;
+  color: #0366d6;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  border: 1px solid #c8e1ff;
+}
+
+.add-goal h4 {
+  margin: 0 0 0.5rem;
+  color: #0366d6;
+  font-size: 1rem;
+}
+
+.add-goal p {
+  margin: 0;
+  color: #586069;
+  font-size: 0.85rem;
+}
+
+/* Goal creation modal */
+.goal-modal .modal-header {
+  background-color: #f6f8fa;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.emoji-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.selected-emoji {
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  z-index: 10;
+  margin-top: 10px;
+}
+
+.random-emoji-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.goal-type-selector {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.goal-type-option {
+  flex: 1;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #fff;
+}
+
+.goal-type-option:hover {
+  background-color: #f6f8fa;
+}
+
+.goal-type-option.active {
+  border-color: #0366d6;
+  background-color: #f1f8ff;
+}
+
+.type-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #0366d6;
+}
+
+.type-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.type-description {
+  font-size: 0.8rem;
+  color: #586069;
+}
+
+.date-picker-container {
+  position: relative;
+}
+
+.clear-date-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: #586069;
+  cursor: pointer;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Goal details modal */
+.goal-details-modal .modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.goal-emoji-header {
+  font-size: 1.5rem;
+}
+
+.goal-status-badge.large {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.goal-detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.goal-detail-section h5 {
+  font-size: 0.9rem;
+  color: #24292e;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.goal-attributes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.attribute {
+  font-size: 0.85rem;
+}
+
+.attribute.full-width {
+  grid-column: span 2;
+}
+
+.attribute-label {
+  color: #586069;
+  margin-right: 0.5rem;
+}
+
+.attribute-value {
+  font-weight: 500;
+  color: #24292e;
+}
+
+.attribute-value.details-text {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: normal;
+  white-space: pre-wrap;
+}
+
+.details-progress {
+  grid-column: span 2;
+  margin-top: 0.5rem;
+}
+
+.goal-modal-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eaecef;
+}
+
+.btn-icon {
+  margin-right: 0.25rem;
+}
+
+/* Delete confirmation modal */
+.delete-confirm-modal .modal-header {
+  background-color: #ffeef0;
+  border-bottom-color: #ffdce0;
+}
+
+.delete-confirm-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.warning-icon {
+  color: #d73a49;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Points display styles */
+.points-display {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 15px;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.points-icon {
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.points-value {
+  font-weight: bold;
+  margin-right: 5px;
+  color: #ff7700;
+}
+
+.revive-streak-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 3px 10px;
+  margin-left: 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.revive-streak-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Revive modal styles */
+.revive-modal-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.revive-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.revive-cost {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cost-label {
+  font-size: 0.9em;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.cost-value {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #ff7700;
+  margin-bottom: 5px;
+}
+
+.user-points {
+  font-size: 0.85em;
+  color: #495057;
+}
+
+.insufficient-points {
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* Challenges Section */
+.challenges-tab {
+  margin-top: 1.5rem;
+}
+
+/* Challenge cards styling */
+.challenge-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card-bg); /* Use card background color */
+  border: 1px solid var(--border-color); /* Subtle border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 2rem; /* Increased padding for better spacing inside the card */
+  margin-bottom: 2rem; /* Increased spacing between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.challenge-card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+/* Title styling */
+.challenge-title {
+  font-size: 1.5rem; /* Increased font size for better readability */
+  font-weight: 600;
+  color: var(--text-main); /* Main text color */
+  margin-bottom: 1rem; /* Space below the title */
+}
+
+/* Description styling */
+.challenge-description {
+  font-size: 1rem; /* Slightly increased font size */
+  color: var(--text-secondary); /* Secondary text color */
+  margin-bottom: 1.5rem; /* Increased space below the description */
+  line-height: 1.6; /* Improve readability */
+}
+
+/* Tags styling */
+.challenge-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Increased spacing between tags */
+  margin-bottom: 1.5rem; /* Increased space below the tags */
+}
+
+.tag-difficulty {
+  font-size: 0.85rem; /* Slightly increased font size */
+  font-weight: 600;
+  padding: 0.4rem 0.8rem; /* Increased padding for better spacing */
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.refresh-challenges-btn{
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #0366d6; 
+  color: #ffffff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tag-difficulty.easy {
+  color: #22863a;
+  background-color: #e6ffec;
+  border: 1px solid #b6e9c9;
+}
+
+.tag-difficulty.medium {
+  color: #735c0f;
+  background-color: #fff8c5;
+  border: 1px solid #f9e3a2;
+}
+
+.tag-difficulty.hard {
+  color: #d73a49;
+  background-color: #ffeef0;
+  border: 1px solid #ffc1c1;
+}
+
+/* Reward section styling */
+.challenge-reward {
+  font-size: 1rem; /* Slightly increased font size */
+  color: var(--success-color); /* Green text for rewards */
+  font-weight: 500;
+  margin-top: auto; /* Push reward section to the bottom */
+  padding-top: 1.5rem; /* Increased spacing above the reward section */
+  border-top: 1px solid var(--border-color); /* Subtle border for separation */
+}
+
+/* Adjust grid layout for proper spacing between cards */
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Adjusted minimum width for cards */
+  gap: 2rem; /* Increased spacing between cards */
+  padding: 2rem 0; /* Increased padding around the grid */
+}
+
+/* Dark mode styles for the Challenges section */
+[data-theme="dark"] .challenges-tab {
+  background-color: #121212; /* Proper dark background */
+  color: #ffffff; /* White text */
+}
+
+[data-theme="dark"] .challenges-tab h3 {
+  color: #ffffff; /* White text for headings */
+}
+
+[data-theme="dark"] .challenges-tab p {
+  color: #b3b3b3; /* Slightly lighter text for descriptions */
+}
+
+[data-theme="dark"] .challenge-card {
+  background-color: #1e1e1e; /* Darker background for cards */
+  color: #ffffff; /* White text for card content */
+  border: 1px solid #333333; /* Subtle border for cards */
+}
+
+[data-theme="dark"] .challenge-card h4 {
+  color: #ffffff; /* White text for card titles */
+}
+
+[data-theme="dark"] .challenge-card p {
+  color: #b3b3b3; /* Slightly lighter text for card descriptions */
+}
+
+/* Empty States */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px dashed #e1e4e8;
+}
+
+.empty-state p {
+  color: #586069;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  max-width: 400px;
+}
+
+.start-journaling-btn,
+.create-goal-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #2ea44f;
+  color: white;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.start-journaling-btn:hover,
+.create-goal-btn:hover {
+  background-color: #2c974b;
+  color: white;
+}
+
+/* Fix for missing CSS classes */
+.no-badges-message {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: #586069;
+  font-size: 0.9rem;
+  background: #f6f8fa;
+  border-radius: 6px;
+  border: 1px dashed #e1e4e8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .stats-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(53, 1fr);
+    gap: 2px;
+  }
+  
+  .calendar-container {
+    padding-left: 28px;
+  }
+  
+  .weekday-labels {
+    left: -28px;
+    width: 24px;
+  }
+  
+  .month-label {
+    padding-left: 2px;
+    font-size: 0.7rem;
+  }
+  
+  .weekday-label:nth-child(1) {
+    top: 12px;
+  }
+
+  .weekday-label:nth-child(2) {
+    top: 40px;
+  }
+
+  .weekday-label:nth-child(3) {
+    top: 68px;
+  }
+  
+  .badges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+  
+  .badge-icon-container {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .badge-icon-large {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+  
+  .goals-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  /* Goals grid responsive */
+  .goals-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .goal-attributes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 1rem;
+  }
+
+  .progress-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(53, 1fr);
+    gap: 2px;
+    height: 80px;
+  }
+  
+  .weekday-labels {
+    height: 80px;
+    font-size: 0.7rem;
+  }
+  
+  .calendar-container {
+    padding-left: 24px;
+  }
+  
+  .weekday-labels {
+    left: -24px;
+    width: 20px;
+  }
+  
+  .weekday-label:nth-child(1) {
+    top: 10px;
+  }
+
+  .weekday-label:nth-child(2) {
+    top: 32px;
+  }
+
+  .weekday-label:nth-child(3) {
+    top: 52px;
+  }
+  
+  .calendar-cell {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .month-labels {
+    margin-bottom: 4px;
+  }
+  
+  .badges-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .badge-category {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .badge-icon-container {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge-icon {
+    font-size: 1.5rem;
+  }
+  
+  .badge-name {
+    font-size: 0.8rem;
+  }
+  
+  .badge-modal-content {
+    padding: 1.5rem;
+    max-width: 350px;
+  }
+  
+  .badge-icon-large {
+    width: 90px;
+    height: 90px;
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .badge-modal-title {
+    font-size: 1.25rem;
+  }
+  
+  .badge-notification {
+    width: 250px;
+  }
+  
+  .goal-card {
+    padding: 1rem;
+  }
+
+  /* Goals filter responsive */
+  .goals-filters {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  /* Daily goals responsive */
+  .daily-goal-card {
+    flex-wrap: wrap;
+  }
+
+  .daily-goal-actions {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .streak-summary {
+    flex-direction: column;
+  }
+
+  .badges-grid,
+  .challenges-list,
+  .goals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(26, 1fr); /* Show half-year */
+    grid-auto-flow: column;
+    height: 60px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .weekday-labels {
+    height: 60px;
+    font-size: 0.65rem;
+    left: -18px;
+    width: 18px;
+  }
+  
+  .calendar-container {
+    padding-left: 20px;
+    overflow-x: auto;
+  }
+  
+  .month-label {
+    width: 16.66%; /* 1/6 for half-year view */
+    font-size: 0.65rem;
+  }
+  
+  .weekday-label:nth-child(1) {
+    top: 8px;
+  }
+
+  .weekday-label:nth-child(2) {
+    top: 24px;
+  }
+
+  .weekday-label:nth-child(3) {
+    top: 40px;
+  }
+  
+  .calendar-cell {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .badge-icon-container {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .badge-icon {
+    font-size: 1.25rem;
+  }
+  
+  .badge-name {
+    font-size: 0.75rem;
+  }
+  
+  .badge-notification {
+    width: 100%;
+    max-width: calc(100% - 20px);
+    margin: 0 10px;
+  }
+  
+  .goal-header h4 {
+    font-size: 0.9rem;
+  }
+  
+  .goal-description {
+    font-size: 0.85rem;
+  }
+
+  .btn-group {
+    flex-wrap: wrap;
+  }
+
+  .goal-type-selector {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .badge-icon-container {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .badge-modal-content {
+    padding: 1.25rem;
+  }
+  
+  .badge-icon-large {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+  }
+  
+  .badge-modal-title {
+    font-size: 1.1rem;
+  }
+  
+  .goal-status {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .goal-metrics {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .add-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Remove background, borders, and shadows for badges */
+.achievement-badge {
+  background: transparent !important; /* Ensure no background is applied */
+  border: none !important; /* Remove any border */
+  box-shadow: none !important; /* Remove any shadow */
+  display: inline-block; /* Ensure badges are inline */
+  margin: 10px; /* Add spacing between badges */
+  text-align: center; /* Center-align the badge content */
+}
+
+/* Adjust the badge icon */
+.achievement-badge img {
+  width: 80px; /* Adjust the size of the badge icon */
+  height: 80px;
+  border-radius: 0; /* Remove any rounding */
+  background: transparent; /* Ensure no background is applied */
+}
+
+/* Adjust the badge title */
+.achievement-badge-title {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-secondary); /* Keep the text color consistent */
+  background: transparent; /* Ensure no background is applied */
+}

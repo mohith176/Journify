@@ -1,0 +1,1032 @@
+/* Summary.css - Styling for the improved Summary page */
+
+/* General Layout */
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #e5e5e5;
+}
+
+.main-content {
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+/* Search bar and filters */
+.search-container {
+  position: relative;
+}
+
+.input-group-text {
+  color: #6c757d;
+}
+
+.calendar-popup {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Journal list items */
+.journal-list {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.journal-item {
+  background-color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.journal-item:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.journal-item.active {
+  border-left: 4px solid #0d6efd;
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.mood-emoji {
+  font-size: 1.2rem;
+}
+
+.summary-text {
+  color: #6c757d;
+  max-height: 40px;
+  overflow: hidden;
+}
+
+/* Empty states */
+.no-data-icon {
+  font-size: 3rem;
+  color: #dee2e6;
+}
+
+.empty-state-icon {
+  font-size: 5rem;
+  color: #dee2e6;
+}
+
+/* Journal details */
+.journal-detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-header {
+  background-color: white;
+}
+
+.journal-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Tabs styling */
+.journal-tabs .nav-link {
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #6c757d;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.journal-tabs .nav-link.active {
+  color: #0d6efd;
+  background-color: transparent;
+  border-bottom: 3px solid #0d6efd;
+}
+
+.journal-tabs .nav-link:hover:not(.active) {
+  border-bottom: 3px solid #dee2e6;
+}
+
+/* Content sections */
+.analysis-content h4 {
+  color: #495057;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mood-tags .badge {
+  font-weight: normal;
+  border-radius: 30px;
+  border: 1px solid #dee2e6;
+}
+
+.theme-tags .badge {
+  font-weight: normal;
+  border-radius: 4px;
+}
+
+/* Message bubbles for conversation */
+.message-bubble {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.message-header {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.user-message {
+  background-color: rgba(13, 110, 253, 0.05);
+  border-left: 3px solid #0d6efd;
+}
+
+.assistant-message {
+  background-color: rgba(25, 135, 84, 0.05);
+  border-left: 3px solid #198754;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    max-height: 40vh;
+  }
+  
+  .main-content {
+    height: auto;
+  }
+}
+
+/* Date picker customization */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+/* Loading spinner */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+
+}
+.summary-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .summary-header {
+    margin-bottom: 30px;
+  }
+  
+  .summary-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2d3748;
+  }
+  
+  .search-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .search-form {
+    display: flex;
+    flex: 1;
+    min-width: 300px;
+    gap: 10px;
+  }
+  
+  .search-input-wrapper {
+    position: relative;
+    flex: 1;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #718096;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  }
+  
+  .clear-search {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #718096;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+  }
+  
+  .clear-search:hover {
+    background-color: #f7fafc;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .search-button:hover {
+    background-color: #3182ce;
+  }
+  
+  .date-filter {
+    position: relative;
+    min-width: 200px;
+  }
+  
+  .calendar-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4a5568;
+  }
+  
+  .calendar-toggle:hover {
+    background-color: #f7fafc;
+  }
+  
+  .clear-dates {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #718096;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+  }
+  
+  .calendar-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-top: 5px;
+    width: 300px;
+  }
+  
+  .date-range-picker {
+    padding: 15px;
+  }
+  
+  .date-picker-wrapper {
+    margin-bottom: 12px;
+  }
+  
+  .date-picker-wrapper label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #4a5568;
+  }
+  
+  .date-picker {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .date-picker-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .date-picker-cancel {
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .date-picker-apply {
+    padding: 8px 12px;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .date-picker-apply:hover {
+    background-color: #3182ce;
+  }
+  
+  .error-message {
+    background-color: #fed7d7;
+    color: #c53030;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #4299e1;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .summaries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .summary-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .summary-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .summary-card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+  }
+  
+  .summary-date {
+    font-size: 14px;
+    color: #718096;
+  }
+  
+  .moods-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .mood-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .more-moods {
+    background-color: #edf2f7;
+    color: #4a5568;
+  }
+  
+  .summary-preview {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .insight-preview {
+    background-color: #f7fafc;
+    border-left: 3px solid #4299e1;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .insight-preview h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 5px 0;
+  }
+  
+  .insight-preview p {
+    font-size: 14px;
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .summary-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .themes-preview {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .theme-pill {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  .more-themes {
+    background-color: #edf2f7;
+  }
+  
+  .view-details {
+    background-color: transparent;
+    color: #4299e1;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .view-details:hover {
+    text-decoration: underline;
+  }
+  
+  .no-summaries {
+    text-align: center;
+    padding: 60px 0.
+  }
+  
+  .no-data-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+  
+  .no-summaries h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 10px;
+  }
+  
+  .no-summaries p {
+    color: #718096;
+    font-size: 16px;
+  }
+  
+  .insight-detail {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 25px;
+  }
+  
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: #4299e1;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .back-button:hover {
+    text-decoration: underline;
+  }
+  
+  .insight-detail-header {
+    margin-bottom: 20px;
+  }
+  
+  .insight-detail-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 8px 0.
+  }
+  
+  .insight-date {
+    font-size: 15px;
+    color: #718096;
+    margin: 0.
+  }
+  
+  .insight-section {
+    margin-bottom: 25px;
+  }
+  
+  .insight-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .journal-content-box {
+    background-color: #f7fafc;
+    padding: 15px;
+    border-radius: 6px;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  
+  .journal-content-box p {
+    margin-bottom: 12px;
+  }
+  
+  .journal-content-box p:last-child {
+    margin-bottom: 0.
+  }
+  
+  .insights-list {
+    padding-left: 20px;
+    margin: 0.
+  }
+  
+  .insights-list li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #4a5568;
+  }
+  
+  .insights-list li:last-child {
+    margin-bottom: 0.
+  }
+  
+  .themes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .theme-badge {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    .summaries-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .search-form {
+      flex-direction: column;
+    }
+    
+    .search-button {
+      width: 100%;
+    }
+    
+    .date-filter {
+      width: 100%;
+    }
+    
+    .calendar-popup {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+  }
+  .navbar.fixed-top {
+    z-index: 1030;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent */
+    backdrop-filter: blur(5px); /* Creates a frosted glass effect */
+  }
+  
+  .navbar.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  mark {
+    background-color: #fff3cd;
+    padding: 0 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.5);
+  }
+
+  /* Add these rules to your Summary.css */
+
+/* Dark mode overrides for Summary page */
+[data-theme="dark"] .sidebar {
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .main-content {
+  background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .journal-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .journal-item.active {
+  border-left: 4px solid var(--primary-color);
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+[data-theme="dark"] .journal-header {
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .journal-tabs .nav-link {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .journal-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+}
+
+[data-theme="dark"] .journal-tabs .nav-link:hover:not(.active) {
+  border-bottom: 3px solid var(--border-color);
+}
+
+[data-theme="dark"] .user-message {
+  background-color: rgba(66, 153, 225, 0.1);
+  border-left: 3px solid var(--primary-color);
+}
+
+[data-theme="dark"] .assistant-message {
+  background-color: rgba(72, 187, 120, 0.1);
+  border-left: 3px solid var(--success-color);
+}
+
+[data-theme="dark"] .calendar-popup {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] mark {
+  background-color: rgba(255, 193, 7, 0.3);
+  box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.3);
+}
+
+[data-theme="dark"] .mood-tags .badge {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .theme-tags .badge {
+  background-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .input-group-text {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .form-control {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--card-bg);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(66, 153, 225, 0.25);
+}
+
+[data-theme="dark"] .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .list-group-item {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+/* Fix for the date picker in dark mode */
+[data-theme="dark"] .react-datepicker {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .react-datepicker__header {
+  background-color: var(--bg-color);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .react-datepicker__current-month,
+[data-theme="dark"] .react-datepicker__day-name,
+[data-theme="dark"] .react-datepicker__day {
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .react-datepicker__day:hover {
+  background-color: var(--hover-bg);
+}
+
+[data-theme="dark"] .react-datepicker__day--selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Dark mode styles for input placeholders */
+[data-theme="dark"] ::placeholder {
+  color: var(--text-secondary); /* White or slightly lighter text for placeholders */
+  opacity: 0.8; /* Adjust opacity for better visibility */
+}
+
+/* Dark mode styles for input fields */
+[data-theme="dark"] .form-control {
+  background-color: var(--card-bg); /* Dark background for input fields */
+  color: var(--text-main); /* White text for input fields */
+  border-color: var(--border-color); /* Border color for dark mode */
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--card-bg); /* Keep dark background on focus */
+  color: var(--text-main); /* Keep white text on focus */
+  border-color: var(--primary-color); /* Highlight border on focus */
+  box-shadow: 0 0 0 0.25rem rgba(66, 153, 225, 0.25); /* Subtle focus shadow */
+}
+
+/* Dark mode styles for separators */
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .main-content,
+[data-theme="dark"] .journal-item,
+[data-theme="dark"] .calendar-popup,
+[data-theme="dark"] .journal-header,
+[data-theme="dark"] .journal-tabs .nav-link,
+[data-theme="dark"] .list-group-item {
+  border-color: var(--border-color); /* Ensure borders are visible in dark mode */
+}
+
+/* Separator lines for sections */
+[data-theme="dark"] .section-separator {
+  border-top: 1px solid var(--border-color); /* Add a visible line for separation */
+  margin: 1rem 0;
+}
+
+/* Separator for journal entries */
+[data-theme="dark"] .journal-item {
+  border-bottom: 1px solid var(--border-color); /* Add a bottom border for journal items */
+}
+
+/* Separator for date filter */
+[data-theme="dark"] .date-filter {
+  border-bottom: 1px solid var(--border-color); /* Add a bottom border for the date filter */
+}
+
+/* General text color for dark mode */
+[data-theme="dark"] {
+  color: var(--text-main);
+}
+
+/* Sidebar text */
+[data-theme="dark"] .sidebar {
+  color: var(--text-main);
+}
+
+/* Journal item text */
+[data-theme="dark"] .journal-item {
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .journal-item .summary-text {
+  color: var(--text-secondary);
+}
+
+/* Main content text */
+[data-theme="dark"] .main-content {
+  color: var(--text-main);
+}
+
+/* Journal header */
+[data-theme="dark"] .journal-header h2 {
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .journal-header p {
+  color: var(--text-secondary);
+}
+
+/* Tabs */
+[data-theme="dark"] .journal-tabs .nav-link {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .journal-tabs .nav-link.active {
+  color: var(--primary-color);
+}
+
+/* Insights and keywords */
+[data-theme="dark"] .insight-preview h4 {
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .insight-preview p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .theme-tags .badge {
+  color: var(--text-main);
+}
+
+/* Date picker */
+[data-theme="dark"] .react-datepicker__current-month,
+[data-theme="dark"] .react-datepicker__day-name,
+[data-theme="dark"] .react-datepicker__day {
+  color: var(--text-main);
+}
+
+/* Placeholder text */
+[data-theme="dark"] ::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* Buttons */
+[data-theme="dark"] .btn {
+  color: var(--text-main);
+}
+
+/* Fix for highlighted text */
+[data-theme="dark"] mark {
+  background-color: rgba(255, 193, 7, 0.3);
+  color: var(--text-main);
+}
+
+/* Entry Reflection text */
+[data-theme="dark"] .analysis-content .card-body p {
+  color: var(--text-main);
+}
+
+/* Feelings badges */
+[data-theme="dark"] .mood-tags .badge {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+/* Insights list */
+[data-theme="dark"] .list-group-item {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+/* Keywords badges */
+[data-theme="dark"] .theme-tags .badge {
+  background-color: var(--border-color);
+  color: var(--text-main);
+}
+
+/* Dark mode styles for "Filter by date" button */
+[data-theme="dark"] .date-filter .calendar-toggle {
+  background-color: #30363d; /* Grey background similar to "Select start date" */
+  color: #c9d1d9; /* Light grey text */
+  border: 1px solid #404854; /* Subtle border */
+}
+
+[data-theme="dark"] .date-filter .calendar-toggle:hover {
+  background-color: #404854; /* Slightly lighter grey on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+/* Dark mode styles for "Cancel" and "Apply" buttons */
+[data-theme="dark"] .calendar-popup .btn {
+  background-color: #30363d; /* Grey background for buttons */
+  color: #c9d1d9; /* Light grey text */
+  border: 1px solid #404854; /* Subtle border */
+}
+
+[data-theme="dark"] .calendar-popup .btn:hover {
+  background-color: #404854; /* Slightly lighter grey on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+/* Dark mode styles for conversation container */
+[data-theme="dark"] .entry-content {
+  background-color: #161b22; /* Match the background of Analysis and Entry sections */
+  color: #ffffff; /* White text for the conversation */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Dark mode styles for user messages */
+[data-theme="dark"] .message-bubble.user-message {
+  background-color: #1f2937; /* Slightly lighter dark background for user messages */
+  color: #ffffff; /* White text for user messages */
+  border-left: 3px solid #0366d6; /* Blue border for user messages */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Dark mode styles for assistant messages */
+[data-theme="dark"] .message-bubble.assistant-message {
+  background-color: #1f2937; /* Slightly lighter dark background for assistant messages */
+  color: #ffffff; /* White text for assistant messages */
+  border-left: 3px solid #28a745; /* Green border for assistant messages */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Dark mode styles for message headers */
+[data-theme="dark"] .message-header {
+  font-weight: bold;
+  color: #c9d1d9; /* Light gray text for message headers */
+  margin-bottom: 0.5rem;
+}
+
+
+
+

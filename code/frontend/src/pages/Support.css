@@ -1,0 +1,16 @@
+.support-page {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.support-page .bg-white {
+  background-color: var(--card-bg);
+}
+
+.support-page .text-gray-700 {
+  color: var(--text-main);
+}
+
+.support-page .border-gray-200 {
+  border-color: var(--border-color);
+}

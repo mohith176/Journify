@@ -1,0 +1,250 @@
+@import "tailwindcss";
+/* Base styles */
+:root {
+  /* Light theme variables */
+  --primary-color: #3182ce;
+  --bg-color: #f8f9fa;
+  --text-main: #2d3748;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+
+  /* Light mode variables */
+  --primary-hover: #2b6cb0;
+  --danger-color: #e53e3e;
+  --danger-hover: #c53030;
+  --success-color: #38a169;
+  --nav-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+  --hover-bg: rgba(49, 130, 206, 0.05);
+  --active-bg: rgba(49, 130, 206, 0.1);
+  --danger-bg: rgba(229, 62, 62, 0.1);
+  --cancel-btn-bg: #edf2f7;
+  --cancel-hover-bg: #e2e8f0;
+  --chart-bg: #ffffff;
+  --text-secondary: #718096;
+  --icon-color: #a0aec0;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  /* Dark theme variables */
+  --primary-color: #4299e1;
+  --bg-color: #1a202c;
+  --text-main: #f7fafc;
+  --card-bg: #2d3748;
+  --border-color: #4a5568;
+
+  --primary-hover: #3182ce;
+  --danger-color: #f56565;
+  --danger-hover: #e53e3e;
+  --success-color: #48bb78;
+  --nav-bg: #2d3748;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --hover-bg: rgba(66, 153, 225, 0.1);
+  --active-bg: rgba(66, 153, 225, 0.2);
+  --danger-bg: rgba(245, 101, 101, 0.1);
+  --cancel-btn-bg: #4a5568;
+  --cancel-hover-bg: #718096;
+  --chart-bg: #2d3748;
+  --text-secondary: #a0aec0;
+  --icon-color: #cbd5e0;
+}
+
+/* Apply theme variables to elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-brand, .nav-link {
+  color: var(--text-main) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--border-color) !important;
+}
+
+/* Card styling */
+.card, .list-group-item {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+/* Button styling */
+.btn-outline-secondary {
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+/* Form controls */
+.form-control {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.form-control:focus {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+/* Modal styling */
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+/* Dark mode overrides for Tailwind classes */
+[data-theme="dark"] .bg-white {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .text-gray-700,
+[data-theme="dark"] .text-gray-800,
+[data-theme="dark"] .text-gray-900 {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .text-gray-500,
+[data-theme="dark"] .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .border {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .shadow-lg,
+[data-theme="dark"] .shadow-md,
+[data-theme="dark"] .shadow-sm {
+  box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color) !important;
+}
+
+/* Dashboard and charts specific */
+.dashboard-container {
+  background-color: var(--bg-color);
+}
+
+.main-content {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.header h1 {
+  color: var(--text-main);
+}
+
+.mood-tracker-section h2 {
+  color: var(--text-main);
+}
+
+/* Override recharts components for dark mode */
+[data-theme="dark"] .recharts-cartesian-grid-horizontal line,
+[data-theme="dark"] .recharts-cartesian-grid-vertical line {
+  stroke: var(--border-color);
+}
+
+[data-theme="dark"] .recharts-text {
+  fill: var(--text-secondary);
+}
+
+[data-theme="dark"] .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-label,
+[data-theme="dark"] .recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-item {
+  color: var(--text-main) !important;
+}
+
+/* Code overrides for bootstrap components */
+.bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+.bg-light {
+  background-color: var(--bg-color) !important;
+}
+
+.text-dark {
+  color: var(--text-main) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.border-secondary {
+  border-color: var(--border-color) !important;
+}
+
+/* Fade transition for theme changes */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fix for charts area in dark mode */
+[data-theme="dark"] .recharts-surface {
+  background-color: transparent;
+}
+
+/* Additional styles for mood page */
+[data-theme="dark"] .mood-tracker-section .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .apexcharts-canvas {
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .apexcharts-text tspan {
+  fill: var(--text-main) !important;
+}
+
+/* Fix for Bootstrap components */
+[data-theme="dark"] .bg-white.shadow-sm {
+  background-color: var(--nav-bg) !important; 
+}
+
+/* For word cloud section */
+[data-theme="dark"] .w-full.flex.flex-col.rounded-xl.text-gray-700.p-4.bg-white.shadow-lg.mt-6 {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main) !important;
+}
+
+/* Fix for buttons */
+[data-theme="dark"] .bg-gray-200 {
+  background-color: var(--cancel-btn-bg) !important;
+}
+
+[data-theme="dark"] .bg-blue-500,
+[data-theme="dark"] .hover\:bg-blue-600:hover {
+  background-color: var(--primary-color);
+}
+
+[data-theme="dark"] .text-gray-700 {
+  color: var(--text-secondary);
+}
+
