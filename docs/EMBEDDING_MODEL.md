@@ -26,7 +26,7 @@ Journify uses OpenAI's embedding models for semantic search and retrieval-augmen
 - **Location**: 
   - `/code/others/test1.py` (Line 244)
   - `/code/others/test2.py` (Line 26)
-- **Dimension**: Not specified (varies by model)
+- **Dimension**: 1536
 - **Purpose**: Used in testing and experimental Python scripts
 - **Configuration**:
   ```python
@@ -37,9 +37,10 @@ Journify uses OpenAI's embedding models for semantic search and retrieval-augmen
   ```
 
 ### Legacy/Alternative Scripts
-**Model**: `OpenAIEmbeddings` (default model)
+**Model**: Default OpenAI embedding model (likely `text-embedding-ada-002`)
 - **Location**: `/code/others/test.py` (Line 81)
 - **Purpose**: Used in alternative LangChain-based test scripts
+- **Note**: Uses `OpenAIEmbeddings` class without explicit model specification, defaults to OpenAI's default embedding model
 - **Configuration**:
   ```python
   self.embeddings = OpenAIEmbeddings(openai_api_key=self.openai_api_key)
@@ -88,7 +89,7 @@ If you want to change the embedding model:
 
 2. Ensure the Pinecone index dimension matches the new model's dimension:
    ```javascript
-   dimension: <new_model_dimension>  // Update in createIndex function
+   dimension: 1536  // Update this value to match your new model's dimension
    ```
 
 3. Re-embed all existing journal entries if switching to a different dimension model
