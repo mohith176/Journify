@@ -79,15 +79,15 @@ PINECONE_INDEX_NAME="your-pinecone-index-name"
 
 If you want to change the embedding model:
 
-1. Update the model name in `/code/backend/controllers/chat.controller.js`:
+1. Update the model name in `/code/backend/controllers/chat.controller.js` (around line 34-37):
    ```javascript
    const embeddings = new OpenAIEmbeddings({
-     modelName: "your-preferred-model",
+     modelName: "text-embedding-3-small",  // Example: switching to a newer model
      openAIApiKey: process.env.OPENAI_API_KEY_LOCAL
    });
    ```
 
-2. Ensure the Pinecone index dimension matches the new model's dimension:
+2. Ensure the Pinecone index dimension matches the new model's dimension in `/code/backend/controllers/chat.controller.js` (in the createIndex function, around line 344):
    ```javascript
    dimension: 1536  // Update this value to match your new model's dimension
    ```
