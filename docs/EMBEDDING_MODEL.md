@@ -26,8 +26,9 @@ Journify uses OpenAI's embedding models for semantic search and retrieval-augmen
 - **Location**: 
   - `/code/others/test1.py` (Line 244)
   - `/code/others/test2.py` (Line 26)
-- **Dimension**: 1536
+- **Dimension**: 1536 (default dimension for this model)
 - **Purpose**: Used in testing and experimental Python scripts
+- **Note**: `text-embedding-3-small` supports configurable dimensions up to 1536
 - **Configuration**:
   ```python
   response = self.client.embeddings.create(
@@ -37,10 +38,10 @@ Journify uses OpenAI's embedding models for semantic search and retrieval-augmen
   ```
 
 ### Legacy/Alternative Scripts
-**Model**: Default OpenAI embedding model (likely `text-embedding-ada-002`)
+**Model**: Default OpenAI embedding model (`text-embedding-ada-002`)
 - **Location**: `/code/others/test.py` (Line 81)
 - **Purpose**: Used in alternative LangChain-based test scripts
-- **Note**: Uses `OpenAIEmbeddings` class without explicit model specification, defaults to OpenAI's default embedding model
+- **Note**: Uses `OpenAIEmbeddings` class without explicit model specification, defaults to `text-embedding-ada-002`
 - **Configuration**:
   ```python
   self.embeddings = OpenAIEmbeddings(openai_api_key=self.openai_api_key)
@@ -82,17 +83,18 @@ If you want to change the embedding model:
 1. Update the model name in `/code/backend/controllers/chat.controller.js` (around line 34-37):
    ```javascript
    const embeddings = new OpenAIEmbeddings({
-     modelName: "text-embedding-3-small",  // Example: switching to a newer model
+     modelName: "text-embedding-3-small",  // Example: switching to a newer model (same 1536 dimension)
      openAIApiKey: process.env.OPENAI_API_KEY_LOCAL
    });
    ```
 
-2. Ensure the Pinecone index dimension matches the new model's dimension in `/code/backend/controllers/chat.controller.js` (in the createIndex function, around line 344):
+2. If switching to a model with different dimensions, update the Pinecone index dimension in `/code/backend/controllers/chat.controller.js` (in the createIndex function, around line 344):
    ```javascript
    dimension: 1536  // Update this value to match your new model's dimension
    ```
+   **Note**: Both `text-embedding-ada-002` and `text-embedding-3-small` use 1536 dimensions, so no dimension change is needed when switching between these models.
 
-3. Re-embed all existing journal entries if switching to a different dimension model
+3. Re-embed all existing journal entries if switching to a model with different dimensions
 
 ## References
 
