@@ -12,7 +12,8 @@ Journify is an open-source AI journaling platform designed to help users improve
 - [Key Features](#key-features)  
 - [Core Components](#core-components) 
 - [Self-Hosting Guide](#self-hosting-guide)  
-- [Access](#access) 
+- [Access](#access)
+- [Technical Documentation](#technical-documentation)
 
 ---
 
@@ -133,4 +134,17 @@ npm run dev
 ```
 
 4. Access Journify locally at http://localhost:5000
+
+---
+
+## Technical Documentation
+
+### Embedding Model
+Journify uses **OpenAI's text-embedding-ada-002** model for semantic search and RAG capabilities. For detailed information about the embedding models used in this project, see [docs/EMBEDDING_MODEL.md](docs/EMBEDDING_MODEL.md).
+
+**Quick Summary:**
+- **Production Model**: `text-embedding-ada-002` (1536 dimensions)
+- **Purpose**: Vectorizes journal entries for semantic search in Pinecone
+- **Features**: Powers context-aware AI responses and long-term memory
+
 

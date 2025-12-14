@@ -2,3 +2,5 @@
 *
 # Except this file
 !.gitignore
+# Allow markdown documentation files
+!*.md
